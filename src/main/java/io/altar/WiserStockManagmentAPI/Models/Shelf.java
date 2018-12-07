@@ -2,15 +2,14 @@ package io.altar.WiserStockManagmentAPI.Models;
 
 import io.altar.WiserStockManagmentAPI.Business.ProductBusiness;
 
-//Class Model Shelf
 public class Shelf extends Entity {
 	
-	// Fields:
+	// Attributes:
 	private int capacity;
 	private Product product;
 	private double price;
 	
-	// Constructor:
+	// Constructors:
 	public Shelf(){}
 	
 	public Shelf(int capacity, double price) {
@@ -18,8 +17,8 @@ public class Shelf extends Entity {
 		this.price = price;
 	}
 	
-	public Shelf(long id, int capacity, double price){
-		this.product = ProductBusiness.getProductById(id);
+	public Shelf(long idProduct, int capacity, double price){
+		this.product = ProductBusiness.getProductById(idProduct);
 		this.capacity = capacity;
 		this.price = price;
 	}

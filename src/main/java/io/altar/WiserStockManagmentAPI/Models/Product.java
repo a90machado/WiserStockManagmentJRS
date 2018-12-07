@@ -1,8 +1,8 @@
 package io.altar.WiserStockManagmentAPI.Models;
 
+// Imports:
 import java.util.ArrayList;
 
-//Class Model Product
 public class Product extends Entity {
 
 	// Fields:
@@ -11,8 +11,7 @@ public class Product extends Entity {
 	private int iva;
 	private double pvp;
 
-	// Constructor:
-	
+	// Constructors:
 	public Product(){}
 	
 	public Product(int discountPrice, int iva, double pvp) {
@@ -64,8 +63,21 @@ public class Product extends Entity {
 	//-------------------------------------------------------
 	
 	// Add new ID Shelf to ListShelfs:
-	public void addToListShelfs(Long e){
+	public void addToListShelfs(long e){
 		this.listShelfs.add(e);
+	}
+	
+	// Remove ID from ListShelfs:
+	public void removeFromListShelfs(long idShelfRemove) {
+		int index = this.listShelfs.indexOf(idShelfRemove);
+		if (index!=-1) {
+			this.listShelfs.remove(index);
+		}
+	}
+	
+	// Clear ListShelf
+	public void clearListShelfs() {
+		this.listShelfs.clear();
 	}
 
 }

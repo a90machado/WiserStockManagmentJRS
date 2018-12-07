@@ -36,7 +36,7 @@ public class ProductService {
 	}
 	
 	@GET
-	@Path("/getall")
+	@Path("/get/all")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Collection<Product> getAllProducts(){
 		return ProductBusiness.getAllProducts();
@@ -50,10 +50,19 @@ public class ProductService {
 	}
 
 	@POST
-	@Path("/addNew")
+	@Path("/post/new")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Product addNewProduct(Product product){
 		return ProductBusiness.saveProduct(product);
+	}
+	
+	@POST
+	@Path("/post/update")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Product updateProduct(Product product){
+		ProductBusiness.replaceProduct(product);
+		return product;
 	}
 }

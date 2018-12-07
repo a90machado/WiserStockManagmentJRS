@@ -34,7 +34,7 @@ public class ShelfService {
 	}
 	
 	@GET
-	@Path("/getall")
+	@Path("/get/all")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Collection<Shelf> getAllShelfs(){
 		return ShelfBusiness.getAllShelfs();
@@ -49,11 +49,22 @@ public class ShelfService {
 	
 	
 	@POST
-	@Path("/addNew")
+	@Path("/post/new")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Shelf addNewProduct(Shelf shelf){
 		return ShelfBusiness.saveShelf(shelf);
 	}
+	
+	@POST
+	@Path("/post/update")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Shelf updateShelf(Shelf shelf) {
+		ShelfBusiness.replaceShelf(shelf);
+		return shelf;
+	}
+	
+	
 
 }

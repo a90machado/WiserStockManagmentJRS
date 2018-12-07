@@ -1,8 +1,7 @@
 package io.altar.WiserStockManagmentAPI.Business;
 
-import java.util.ArrayList;
+// Imports:
 import java.util.Collection;
-
 import io.altar.WiserStockManagmentAPI.Models.Product;
 import io.altar.WiserStockManagmentAPI.Repositories.ProductRepository;
 
@@ -16,6 +15,10 @@ public class ProductBusiness {
 		return PRODUCT_REPOSITORY.save(saveProduct);
 	}
 	
+	// Replace Product
+	public static void replaceProduct (Product product) {
+		PRODUCT_REPOSITORY.updateByID(product);
+	}
 	
 	// Get Product by ID
 	public static Product getProductById (long id){
@@ -23,17 +26,18 @@ public class ProductBusiness {
 		return searchProduct;
 	}
 	
-	// Get All Products
+	// Get ALL Products
 	public static Collection<Product> getAllProducts(){
 		return PRODUCT_REPOSITORY.getAll();
 	}
 	
 	
-	// Remove Product
+	// Remove Product by ID
 	public static void removeProduct (long idToRemove){
 		PRODUCT_REPOSITORY.removeByID(idToRemove);
 	}
 	
+	// Remove ALL Products
 	public static void removeAllProducts(){
 		PRODUCT_REPOSITORY.removeAll();
 	}
