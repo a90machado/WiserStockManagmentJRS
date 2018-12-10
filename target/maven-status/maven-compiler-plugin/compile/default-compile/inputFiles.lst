@@ -1,11 +1,13 @@
 /Users/alunomanha/Desktop/Repositorios/WiserStockManagmentJRS/src/main/java/io/altar/App.java
-/Users/alunomanha/Desktop/Repositorios/WiserStockManagmentJRS/src/main/java/io/altar/WiserStockManagmentAPI/Repositories/ProductRepository.java
 /Users/alunomanha/Desktop/Repositorios/WiserStockManagmentJRS/src/main/java/io/altar/WiserStockManagmentAPI/Models/Product.java
+/Users/alunomanha/Desktop/Repositorios/WiserStockManagmentJRS/src/main/java/io/altar/WiserStockManagmentAPI/Repositories/ShelfRepository.java
+/Users/alunomanha/Desktop/Repositorios/WiserStockManagmentJRS/src/main/java/io/altar/WiserStockManagmentAPI/Repositories/ProductRepository.java
 /Users/alunomanha/Desktop/Repositorios/WiserStockManagmentJRS/src/main/java/io/altar/WiserStockManagmentAPI/Services/ProductService.java
 /Users/alunomanha/Desktop/Repositorios/WiserStockManagmentJRS/src/main/java/io/altar/WiserStockManagmentAPI/Models/Shelf.java
 /Users/alunomanha/Desktop/Repositorios/WiserStockManagmentJRS/src/main/java/io/altar/WiserStockManagmentAPI/Business/ShelfBusiness.java
+/Users/alunomanha/Desktop/Repositorios/WiserStockManagmentJRS/src/main/java/io/altar/WiserStockManagmentAPI/DTOs/ShelfDTO.java
 /Users/alunomanha/Desktop/Repositorios/WiserStockManagmentJRS/src/main/java/io/altar/WiserStockManagmentAPI/Models/Entity.java
 /Users/alunomanha/Desktop/Repositorios/WiserStockManagmentJRS/src/main/java/io/altar/WiserStockManagmentAPI/Repositories/EntityRepository.java
-/Users/alunomanha/Desktop/Repositorios/WiserStockManagmentJRS/src/main/java/io/altar/WiserStockManagmentAPI/Repositories/ShelfRepository.java
+/Users/alunomanha/Desktop/Repositorios/WiserStockManagmentJRS/src/main/java/io/altar/WiserStockManagmentAPI/DTOs/ProductDTO.java
 /Users/alunomanha/Desktop/Repositorios/WiserStockManagmentJRS/src/main/java/io/altar/WiserStockManagmentAPI/Services/ShelfService.java
 /Users/alunomanha/Desktop/Repositorios/WiserStockManagmentJRS/src/main/java/io/altar/WiserStockManagmentAPI/Business/ProductBusiness.java

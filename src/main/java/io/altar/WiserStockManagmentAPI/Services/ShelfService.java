@@ -11,6 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import io.altar.WiserStockManagmentAPI.Business.ShelfBusiness;
+import io.altar.WiserStockManagmentAPI.DTOs.ShelfDTO;
 import io.altar.WiserStockManagmentAPI.Models.Shelf;
 
 @Path("/shelfs")
@@ -36,14 +37,14 @@ public class ShelfService {
 	@GET
 	@Path("/get/all")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Collection<Shelf> getAllShelfs(){
+	public Collection<ShelfDTO> getAllShelfs(){
 		return ShelfBusiness.getAllShelfs();
 	}
 	
 	@GET
 	@Path("/get/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Shelf getProductByID(@PathParam("id") long id){
+	public ShelfDTO getProductByID(@PathParam("id") long id){
 		return ShelfBusiness.getShelfById(id);
 	}
 	
@@ -52,7 +53,7 @@ public class ShelfService {
 	@Path("/post/new")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Shelf addNewProduct(Shelf shelf){
+	public ShelfDTO addNewProduct(Shelf shelf){
 		return ShelfBusiness.saveShelf(shelf);
 	}
 	

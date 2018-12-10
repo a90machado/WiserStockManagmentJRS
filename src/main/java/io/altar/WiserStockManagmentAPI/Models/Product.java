@@ -2,11 +2,16 @@ package io.altar.WiserStockManagmentAPI.Models;
 
 // Imports:
 import java.util.ArrayList;
+import java.util.List;
 
 public class Product extends Entity {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// Fields:
-	private ArrayList<Long> listShelfs;
+	private List<Shelf> listShelfs;
 	private int discountPrice;
 	private int iva;
 	private double pvp;
@@ -15,13 +20,13 @@ public class Product extends Entity {
 	public Product(){}
 	
 	public Product(int discountPrice, int iva, double pvp) {
-		this.listShelfs = new ArrayList<Long>();
+		this.listShelfs = new ArrayList<Shelf>();
 		this.discountPrice = discountPrice;
 		this.iva = iva;
 		this.pvp = pvp;
 	}
 	
-	public Product(ArrayList<Long> listShelfs, int discountPrice, int iva, double pvp) {
+	public Product(List<Shelf> listShelfs, int discountPrice, int iva, double pvp) {
 		this.listShelfs = listShelfs;
 		this.discountPrice = discountPrice;
 		this.iva = iva;
@@ -29,15 +34,15 @@ public class Product extends Entity {
 	}
 
 	// Getters and Setters:
-	public ArrayList<Long> getListShelfs() {
+	public List<Shelf> getListShelfs() {
 		return listShelfs;
 	}
 
-	public void setListShelfs(ArrayList<Long> listShelfs) {
+	public void setListShelfs(List<Shelf> listShelfs) {
 		this.listShelfs = listShelfs;
 	}
 	//-------------------------------------------------------
-	public double getDiscountPrice() {
+	public int getDiscountPrice() {
 		return discountPrice;
 	}
 
@@ -45,7 +50,7 @@ public class Product extends Entity {
 		this.discountPrice = discountPrice;
 	}
 	//-------------------------------------------------------
-	public double getIva() {
+	public int getIva() {
 		return iva;
 	}
 
@@ -61,19 +66,6 @@ public class Product extends Entity {
 		this.pvp = pvp;
 	}
 	//-------------------------------------------------------
-	
-	// Add new ID Shelf to ListShelfs:
-	public void addToListShelfs(long e){
-		this.listShelfs.add(e);
-	}
-	
-	// Remove ID from ListShelfs:
-	public void removeFromListShelfs(long idShelfRemove) {
-		int index = this.listShelfs.indexOf(idShelfRemove);
-		if (index!=-1) {
-			this.listShelfs.remove(index);
-		}
-	}
 	
 	// Clear ListShelf
 	public void clearListShelfs() {

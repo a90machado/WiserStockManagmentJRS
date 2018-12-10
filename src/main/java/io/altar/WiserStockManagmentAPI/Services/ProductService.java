@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import io.altar.WiserStockManagmentAPI.Business.ProductBusiness;
+import io.altar.WiserStockManagmentAPI.DTOs.ProductDTO;
 import io.altar.WiserStockManagmentAPI.Models.Product;
 
 @Path("/products")
@@ -23,7 +24,6 @@ public class ProductService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response deleteProductByID(@PathParam("id") long id){
 		ProductBusiness.removeProduct(id);
-			//Response.status(400).build();
 		return Response.ok().build();
 	} 
 	
@@ -38,22 +38,22 @@ public class ProductService {
 	@GET
 	@Path("/get/all")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Collection<Product> getAllProducts(){
+	public Collection<ProductDTO> getAllProducts(){
 		return ProductBusiness.getAllProducts();
 	}
 	
 	@GET
 	@Path("/get/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Product getProductByID(@PathParam("id") long id){
-		return ProductBusiness.getProductById(id);
+	public Response getProductByID(@PathParam("id") long id){
+		return Response.ok(ProductBusiness.getProductById(id)).build();
 	}
 
 	@POST
 	@Path("/post/new")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Product addNewProduct(Product product){
+	public ProductDTO addNewProduct(Product product){
 		return ProductBusiness.saveProduct(product);
 	}
 	
@@ -61,8 +61,7 @@ public class ProductService {
 	@Path("/post/update")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Product updateProduct(Product product){
-		ProductBusiness.replaceProduct(product);
-		return product;
+	public ProductDTO updateProduct(Product product){
+		return ProductBusiness.replaceProduct(product);
 	}
 }

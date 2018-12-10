@@ -4,6 +4,9 @@ import java.awt.List;
 import java.util.ArrayList;
 // Imports:
 import java.util.Collection;
+import java.util.Iterator;
+
+import io.altar.WiserStockManagmentAPI.DTOs.ProductDTO;
 import io.altar.WiserStockManagmentAPI.Models.Product;
 import io.altar.WiserStockManagmentAPI.Models.Shelf;
 import io.altar.WiserStockManagmentAPI.Repositories.ProductRepository;
@@ -15,54 +18,36 @@ public class ProductBusiness {
 	private static final ProductRepository PRODUCT_REPOSITORY = ProductRepository.getInstance();
 
 	// Save Product
-	public static Product saveProduct(Product saveProduct) {
-		if (saveProduct.getListShelfs().isEmpty()) {
-			return PRODUCT_REPOSITORY.save(saveProduct);
-		} else if (ShelfBusiness.isEmpty()) {
-			if (!saveProduct.getListShelfs().isEmpty()) {
-				ArrayList<Long> newArray = new ArrayList<Long>();
-				saveProduct.setListShelfs(newArray);
-				return PRODUCT_REPOSITORY.save(saveProduct);
-			} else {
-				return PRODUCT_REPOSITORY.save(saveProduct);
-			}
-		}else if (!ShelfBusiness.isEmpty() && saveProduct.getListShelfs().size()>0){
-			ArrayList<Long> listShelfs = saveProduct.getListShelfs();
-			boolean checkShelfsInput = true;
-			for (int i = 0; i < listShelfs.size() ; i++) {
-				long element = listShelfs.get(i);
-				if (ShelfBusiness.getShelfById(element)==null || ShelfBusiness.getShelfById(element).getId()==element){
-					checkShelfsInput = false;
-				}
-			}
-			if (checkShelfsInput==true){
-				for (int i = 0; i < listShelfs.size() ; i++) {
-					long element = listShelfs.get(i);
-					ShelfBusiness.getShelfById(element).setProduct(saveProduct);
-				}
-				return PRODUCT_REPOSITORY.save(saveProduct);
-			} else {
-				
-			}
-			
-		}
-		return saveProduct;
+	public static ProductDTO saveProduct(Product saveProduct) {
+		PRODUCT_REPOSITORY.save(saveProduct);
+		ProductDTO newProduct = new ProductDTO(saveProduct.getId(),saveProduct.getDiscountPrice(),saveProduct.getIva(),saveProduct.getPvp());
+		return newProduct;
 	}
 
 	// Replace Product
-	public static void replaceProduct(Product product) {
+	public static ProductDTO replaceProduct(Product product) {
 		PRODUCT_REPOSITORY.updateByID(product);
+		ProductDTO updatedProduct = new ProductDTO(product.getId(),product.getDiscountPrice(),product.getIva(),product.getPvp());
+		return updatedProduct;
 	}
 
 	// Get Product by ID
-	public static Product getProductById(long id) {
+	public static ProductDTO getProductById(long id) {
 		Product searchProduct = PRODUCT_REPOSITORY.findByID(id);
-		return searchProduct;
+		ProductDTO productDTO = new ProductDTO(searchProduct.getId(),searchProduct.getDiscountPrice(),searchProduct.getIva(),searchProduct.getPvp());
+		return productDTO;
 	}
 
 	// Get ALL Products
-	public static Collection<Product> getAllProducts() {
-		return PRODUCT_REPOSITORY.getAll();
+	public static Collection<ProductDTO> getAllProducts() {
+		Iterator<Product> products = PRODUCT_REPOSITORY.getAll().iterator();
+		Collection<ProductDTO> productDTOs = new ArrayList<ProductDTO>();
+		while(products.hasNext()){
+			Product product = products.next();
+			ProductDTO productDTO = new ProductDTO(product.getId(),product.getDiscountPrice(),product.getIva(),product.getPvp());
+			productDTOs.add(productDTO);
+			}
+		return productDTOs;
 	}
 
 	// Remove Product by ID
