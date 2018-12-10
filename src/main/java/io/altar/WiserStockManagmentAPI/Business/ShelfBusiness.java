@@ -1,10 +1,9 @@
 package io.altar.WiserStockManagmentAPI.Business;
 
-import java.util.ArrayList;
 // Imports:
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-
 import io.altar.WiserStockManagmentAPI.DTOs.ShelfDTO;
 import io.altar.WiserStockManagmentAPI.Models.Shelf;
 import io.altar.WiserStockManagmentAPI.Repositories.ShelfRepository;
